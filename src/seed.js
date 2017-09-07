@@ -10,8 +10,8 @@ window.Seed = (function () {
         description: 'On-demand sand castle construction expertise.',
         url: '#',
         votes: generateVoteCount(),
-        submitterAvatarUrl: 'images/avatars/daniel.jpg',
-        productImageUrl: 'images/products/image-aqua.png',
+        submitterAvatarUrl: 'src/images/avatars/daniel.jpg',
+        productImageUrl: 'src/images/products/image-aqua.png',
       },
       {
         id: 2,
@@ -19,8 +19,8 @@ window.Seed = (function () {
         description: 'Earn points when your favorite politicians pass legislation.',
         url: '#',
         votes: generateVoteCount(),
-        submitterAvatarUrl: 'images/avatars/kristy.png',
-        productImageUrl: 'images/products/image-rose.png',
+        submitterAvatarUrl: 'src/images/avatars/kristy.png',
+        productImageUrl: 'src/images/products/image-rose.png',
       },
       {
         id: 3,
@@ -28,8 +28,8 @@ window.Seed = (function () {
         description: 'We already have your measurements and shipping address.',
         url: '#',
         votes: generateVoteCount(),
-        submitterAvatarUrl: 'images/avatars/veronika.jpg',
-        productImageUrl: 'images/products/image-steel.png',
+        submitterAvatarUrl: 'src/images/avatars/veronika.jpg',
+        productImageUrl: 'src/images/products/image-steel.png',
       },
       {
         id: 4,
@@ -37,8 +37,8 @@ window.Seed = (function () {
         description: 'High-minded or absent-minded? You decide.',
         url: '#',
         votes: generateVoteCount(),
-        submitterAvatarUrl: 'images/avatars/molly.png',
-        productImageUrl: 'images/products/image-yellow.png',
+        submitterAvatarUrl: 'src/images/avatars/molly.png',
+        productImageUrl: 'src/images/products/image-yellow.png',
       },
     ];
   
