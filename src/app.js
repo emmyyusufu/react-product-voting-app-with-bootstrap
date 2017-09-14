@@ -1,30 +1,72 @@
 
 class ProductList extends React.Component {
+    state = {
+        products: [],
+      };
+    
+      componentDidMount() {
+        this.setState({ products: Seed.products });
+      }
+
+      handleProductUpVote = (productId) => {
+        const nextProducts = this.state.products.map((product) => {
+          if (product.id === productId) {
+            return Object.assign({}, product, {
+              votes: product.votes + 1,
+            });
+          } else {
+            return product;
+          }
+        });
+        this.setState({
+          products: nextProducts,
+        });
+      }
+
+
     render() {
 
-        const products = Seed.products.map((product) => (
-            <Product 
-            id={product.id}
-            title={product.title}
-            description={product.description}
-            url={product.url}
-            votes={product.votes}
-            submitterAvatarUrl={product.submitterAvatarUrl}
-            productImageUrl={product.productImageUrl}
-            />
+        const products = this.state.products.sort((a, b) => (
+            b.votes - a.votes
         ));
+
+        const productComponents = products.map((product) => (
+            <Product
+              key={'product-' + product.id}
+              id={product.id}
+              title={product.title}
+              description={product.description}
+              url={product.url}
+              votes={product.votes}
+              submitterAvatarUrl={product.submitterAvatarUrl}
+              productImageUrl={product.productImageUrl}
+              onVote={this.handleProductUpVote}
+            />
+          ));
 
         return (
             <div className="container">
                 <h1>Popular products</h1>
                 <hr />
-                {products}
+                {productComponents}
             </div>
         );
     }
 }
 
 class Product extends React.Component {
+
+    constructor() {
+        super();
+        this.passTheId = this.passTheId.bind(this);
+    }
+
+    passTheId() {
+        console.log('Id will be passed');
+        this.props.onVote(this.props.id);
+    }
+
+
     render() {
         return (
           <div className='container'>
@@ -38,7 +80,7 @@ class Product extends React.Component {
                 </div> 
 
                 <div className='header'>
-                    <a>
+                    <a onClick={this.passTheId}>
                         <i className='fa fa-2x fa-caret-up' />
                     </a>
                     {this.props.votes}
